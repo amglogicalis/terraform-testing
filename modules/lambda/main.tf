@@ -1,12 +1,12 @@
 resource "aws_lambda_function" "this" {
-  function_name = "demo-lambda"
+  function_name = "${var.name}-lambda"
   runtime       = "python3.12"
   handler       = "lambda_function.lambda_handler"
 
-  filename         = "lambda.zip"
-  source_code_hash = filebase64sha256("lambda.zip")
+  filename         = var.lambda_zip
+  source_code_hash = filebase64sha256(var.lambda_zip)
 
-  role = "arn:aws:iam::339712980459:role/LabRole"
+  role = var.role_arn
 
   timeout     = 3
   memory_size = 128
@@ -14,6 +14,7 @@ resource "aws_lambda_function" "this" {
   environment {
     variables = {
       TABLE_NAME = var.dynamodb_table_name
+      BUCKET_NAME = var.bucket_name
     }
   }
 }

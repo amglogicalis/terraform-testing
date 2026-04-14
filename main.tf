@@ -9,6 +9,8 @@ module "lambda" {
   name                = "demo"
   lambda_zip          = "lambda.zip"
   dynamodb_table_name = module.dynamodb.table_name
+  role_arn = "arn:aws:iam::339712980459:role/LabRole"
+  bucket_name = module.s3.bucket_name
 }
 
 module "api_gateway" {
@@ -26,4 +28,9 @@ resource "aws_lambda_permission" "apigw" {
   principal     = "apigateway.amazonaws.com"
 
   source_arn = "${module.api_gateway.execution_arn}/*/*"
+}
+
+module "s3" {
+  source = "./modules/s3"
+  name   = "demo"
 }

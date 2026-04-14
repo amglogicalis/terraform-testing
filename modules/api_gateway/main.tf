@@ -10,7 +10,7 @@ resource "aws_apigatewayv2_integration" "lambda" {
   integration_uri  = var.lambda_invoke_arn
 }
 
-resource "aws_apigatewayv2_route" "default" {
+resource "aws_apigatewayv2_route" "any" {
   api_id    = aws_apigatewayv2_api.this.id
   route_key = "ANY /{proxy+}"
 

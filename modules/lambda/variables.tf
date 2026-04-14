@@ -11,3 +11,11 @@ variable "dynamodb_table_name" {
   type        = string
   description = "DynamoDB table name"
 }
+
+variable "role_arn" {
+  type = string
+}
+
+variable "bucket_name" {
+  type = string
+}
