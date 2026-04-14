@@ -7,4 +7,9 @@ resource "aws_dynamodb_table" "this" {
     name = "id"
     type = "S"
   }
+
+  tags = {
+    Project = var.name
+    Module  = "dynamodb"
+  }
 }
