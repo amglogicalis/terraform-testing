@@ -1,0 +1,18 @@
+# ============================================================
+# terraform.tfvars.example
+#
+# Copia este archivo como "terraform.tfvars" y rellena los
+# valores con los de tu propia cuenta de AWS.
+# El archivo terraform.tfvars NO debe subirse al repositorio.
+# ============================================================
+
+# Nombre base del proyecto (se usara como prefijo en los recursos)
+project_name = "demo"
+
+# Region de AWS donde se desplegara la infraestructura
+aws_region = "us-east-1"
+
+# ARN del IAM Role que tendra la funcion Lambda.
+# Debe existir en TU cuenta de AWS con permisos sobre DynamoDB y S3.
+# Ejemplo:  arn:aws:iam::<TU_ACCOUNT_ID>:role/<NOMBRE_DEL_ROLE>
+role_arn = "arn:aws:iam::XXXXXXXXXX:role/NombreDelRole"

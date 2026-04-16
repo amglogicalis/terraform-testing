@@ -1,22 +1,22 @@
 module "dynamodb" {
   source = "./modules/dynamodb"
-  name   = "demo"
+  name   = var.project_name
 }
 
 module "lambda" {
   source = "./modules/lambda"
 
-  name                = "demo"
+  name                = var.project_name
   lambda_zip          = "${path.module}/modules/lambda/lambda.zip"
   dynamodb_table_name = module.dynamodb.table_name
-  role_arn = "arn:aws:iam::339712980459:role/LabRole"
-  bucket_name = module.s3.bucket_name
+  role_arn            = var.role_arn
+  bucket_name         = module.s3.bucket_name
 }
 
 module "api_gateway" {
   source = "./modules/api_gateway"
 
-  name              = "demo"
+  name              = var.project_name
   lambda_invoke_arn = module.lambda.invoke_arn
 }
 
@@ -32,5 +32,5 @@ resource "aws_lambda_permission" "apigw" {
 
 module "s3" {
   source = "./modules/s3"
-  name   = "demo"
+  name   = var.project_name
 }
