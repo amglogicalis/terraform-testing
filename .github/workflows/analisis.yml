@@ -19,4 +19,4 @@ jobs:
           ref: ${{ github.event.inputs.rama }}
 
       - name: Ejecutar analisis independiente
-        uses: ./.github/actions/repo-analysis
+        uses: amglogicalis/repo-analysis-action@main
