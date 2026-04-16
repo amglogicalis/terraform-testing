@@ -1,5 +1,7 @@
 **CREA UNA PÁGINA WEB SERVERLESS PARA REGISTRAR Y CREAR USUARIOS, QUE INICIARAN SESIÓN Y PODRÁN ACCEDER A UN MURAL PÚBLICO DE FOTOS DONDE SUBIR SUS FOTOS Y PONDRÁ DE QUE USUARIO ES CADA FOTO USANDO AWS LAMBDA, DYNAMO DB Y S3**
 
+**EL ARCHIVO terraform.tfvars.example SIRVE COMO GUIA Y PRECONFIGURACIÓN PARA LOS PARAMETROS DE LA INFRAESTRUCTURA**
+
 Tambien adjunto una serie de scripts de utilidad:
 
 **-awsconfigure.ps1**: es un script que al ejecutarlo permite crear y configurar usuarios y sus credenciales de aws a través de una interfaz gráfica, además también sirve para validar las credenciales
